@@ -1,8 +1,15 @@
 import { NavLink, useLocation } from "react-router-dom"
+import { useAppStore } from "../store/useAppStore";
+import { useEffect } from "react";
 
 const Header = () => {
+  const { categories, fetchCategories } = useAppStore();
   const { pathname } = useLocation();
   const isHome = pathname === '/';
+
+  useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories]);
 
   return (
     <header
@@ -60,6 +67,15 @@ const Header = () => {
                 id="categoty"
                 className="w-full p-2 rounded-md outline-none">
                 <option value="">-- Selecciona un ingrediente --</option>
+                {
+                  categories.map((drink) =>
+                    <option
+                      key={drink.strCategory}
+                      value={drink.strCategory}>
+                      {drink.strCategory}
+                    </option>
+                  )
+                }
               </select>
             </div>
 
