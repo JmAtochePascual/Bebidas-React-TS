@@ -1,15 +1,28 @@
 import { NavLink, useLocation } from "react-router-dom"
 import { useAppStore } from "../store/useAppStore";
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { INITIAL_PAIR } from "../data/initialStates";
+import { TPair } from "../types";
 
 const Header = () => {
   const { categories, fetchCategories } = useAppStore();
+  const [pair, setPair] = useState<TPair>(INITIAL_PAIR);
+  const isPairEmpty = Object.values(pair).includes('');
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
   useEffect(() => {
     fetchCategories();
   }, [fetchCategories]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setPair({ ...pair, [event.target.name]: event.target.value });
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(pair);
+  }
 
   return (
     <header
@@ -39,32 +52,37 @@ const Header = () => {
         {
           isHome &&
           <form
+            onSubmit={handleSubmit}
             className="w-full p-4 flex flex-col gap-4 rounded-md bg-orange-500 shadow-2xl md:w-1/2 lg:w-1/3">
             <div>
               <label
-                htmlFor="ingrediente"
+                htmlFor="ingredient"
                 className="mb-1 block uppercase font-semibold text-white">
                 Nombre o Ingrediente
               </label>
 
               <input
-                id="ingrediente"
-                name="ingrediente"
+                id="ingredient"
+                name="ingredient"
                 placeholder="Ejm: Margarita"
                 type="text"
+                value={pair.ingredient}
+                onChange={handleChange}
                 className="w-full p-2 rounded-md outline-none" />
             </div>
 
             <div>
               <label
-                htmlFor="categoty"
+                htmlFor="category"
                 className="mb-1 block uppercase font-semibold text-white">
                 Ingrediente
               </label>
 
               <select
-                name="categoty"
-                id="categoty"
+                name="category"
+                id="category"
+                value={pair.category}
+                onChange={handleChange}
                 className="w-full p-2 rounded-md outline-none">
                 <option value="">-- Selecciona un ingrediente --</option>
                 {
@@ -82,7 +100,8 @@ const Header = () => {
             <input
               type="submit"
               value="Buscar Receta"
-              className="p-2 text-white uppercase font-bold cursor-pointer bg-orange-800 hover:bg-orange-900" />
+              disabled={isPairEmpty}
+              className="p-2 text-white uppercase font-bold cursor-pointer bg-orange-800 hover:bg-orange-900 disabled:opacity-35 disabled:cursor-not-allowed" />
           </form>
         }
       </div>
