@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
 
@@ -10,8 +11,17 @@ const Header = () => {
           className="w-24" />
 
         <nav className="flex gap-4">
-          <a href="">Home</a>
-          <a href="">Favoritos</a>
+          <NavLink
+            to="/"
+            className={({ isActive }) => `text-lg uppercase font-semibold ${isActive ? 'text-orange-500' : 'text-white'}`}>
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/favoritos"
+            className={({ isActive }) => `text-lg uppercase font-semibold ${isActive ? 'text-orange-500' : 'text-white'}`}>
+            Favoritos
+          </NavLink>
         </nav>
       </div>
     </header>
