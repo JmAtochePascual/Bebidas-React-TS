@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import Layout from "./layouts/Layout"
-import Favorites from "./layouts/Favorites"
+import Favorites from "./pages/Favorites"
 
 const AppRouter = () => {
   return (
