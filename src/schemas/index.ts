@@ -5,22 +5,22 @@ export const PairSchema = z.object({
   category: z.string(),
 });
 
-export const CategoryApiResponse = z.object({
+export const CategoryShema = z.object({
   strCategory: z.string(),
 });
 
-export const CategoriesApiSchema = z.object({
-  drinks: z.array(CategoryApiResponse)
+export const CategoriesShema = z.object({
+  drinks: z.array(CategoryShema)
 });
 
-export const DrinkApiResponse = z.object({
+export const DrinkShema = z.object({
   idDrink: z.string(),
   strDrink: z.string(),
   strDrinkThumb: z.string(),
 });
 
-export const DrinksApiSchema = z.object({
-  drinks: z.array(DrinkApiResponse)
+export const DrinksShema = z.object({
+  drinks: z.array(DrinkShema)
 });
 
 export const RecipeSchema = z.object({

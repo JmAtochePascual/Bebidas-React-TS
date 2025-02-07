@@ -1,8 +1,8 @@
 import { useAppStore } from "../store/useAppStore";
-import { TDrinkApiResponse } from "../types"
+import { TDrinkShema } from "../types"
 
 type TDrinkCardProps = {
-  drink: TDrinkApiResponse;
+  drink: TDrinkShema;
 }
 
 const DrinkCard = ({ drink }: TDrinkCardProps) => {

@@ -1,15 +1,15 @@
 import { StateCreator } from "zustand"
 import { getCategories, getDrinks, getRecipe } from "../services/recipeService"
-import { TCategoryApiResponse, TDrinkApiResponse, TPair, TRecipe } from "../types"
+import { TCategoryShema, TDrinkShema, TPair, TRecipe } from "../types"
 
 export type TRecipeSlice = {
-  categories: TCategoryApiResponse[],
-  drinks: TDrinkApiResponse[],
+  categories: TCategoryShema[],
+  drinks: TDrinkShema[],
   recipe: TRecipe,
   modal: boolean,
   fetchCategories: () => Promise<void>,
   fetchDrinks: (pair: TPair) => Promise<void>
-  fetchRecipe: (id: TDrinkApiResponse['idDrink']) => Promise<void>
+  fetchRecipe: (id: TDrinkShema['idDrink']) => Promise<void>
   closeModal: () => void
 }
 

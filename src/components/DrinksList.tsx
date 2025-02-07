@@ -1,9 +1,9 @@
-import { TDrinkApiResponse } from "../types"
+import { TDrinkShema } from "../types"
 import DrinkCard from "./DrinkCard";
 
 type DrinkCardProps = {
   label: string,
-  list: TDrinkApiResponse[]
+  list: TDrinkShema[]
 }
 
 const DrinksList = ({ label, list }: DrinkCardProps) => {
@@ -14,7 +14,7 @@ const DrinksList = ({ label, list }: DrinkCardProps) => {
       {
         isListEmpty
           ? <p className="text-lg text-center text-gray-800">{label}</p>
-          : <div className="pb-20 grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          : <div className="pb-32 grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {
               drinks.map(drink =>
                 <DrinkCard

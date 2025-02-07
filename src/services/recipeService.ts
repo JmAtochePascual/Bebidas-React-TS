@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CategoriesApiSchema, DrinksApiSchema, RecipesSchema } from '../schemas';
+import { CategoriesShema, DrinksShema, RecipesSchema } from '../schemas';
 import { TPair } from '../types';
 
 export const getCategories = async () => {
@@ -7,7 +7,7 @@ export const getCategories = async () => {
 
   try {
     const { data } = await axios.get(URL);
-    const result = CategoriesApiSchema.safeParse(data);
+    const result = CategoriesShema.safeParse(data);
 
     if (result.success) return result.data.drinks;
 
@@ -22,7 +22,7 @@ export const getDrinks = async (pair: TPair) => {
 
   try {
     const { data } = await axios.get(URL);
-    const result = DrinksApiSchema.safeParse(data);
+    const result = DrinksShema.safeParse(data);
 
     if (result.success) return result.data.drinks;
 
