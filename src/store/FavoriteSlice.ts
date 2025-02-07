@@ -9,7 +9,7 @@ export type TFavoriteSlice = {
 }
 
 export const favoriteSlice: StateCreator<TFavoriteSlice> = (set, get) => ({
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem('favorites-drinks') || '[]'),
   alreadyExists: (id) => get().favorites.some((fav) => fav.idDrink === id),
   handleFavorite: (recipe) => {
     const addToFavorites = () => set((state) => ({ favorites: [...state.favorites, recipe], }));
@@ -21,6 +21,8 @@ export const favoriteSlice: StateCreator<TFavoriteSlice> = (set, get) => ({
       addToFavorites();
     }
     useAppStore.getState().closeModal();
-  }
 
+    // Add to local storage
+    localStorage.setItem('favorites-drinks', JSON.stringify(get().favorites));
+  }
 })
