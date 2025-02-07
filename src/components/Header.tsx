@@ -9,7 +9,7 @@ const Header = () => {
   const [pair, setPair] = useState<TPair>(INITIAL_PAIR);
   const isPairEmpty = Object.values(pair).includes('');
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
+  const isHome = pathname === '/Bebidas-React-TS/';
 
   useEffect(() => {
     fetchCategories();
@@ -36,13 +36,13 @@ const Header = () => {
 
           <nav className="flex gap-4">
             <NavLink
-              to="/"
-              className={({ isActive }) => `text-lg uppercase font-bold ${isActive ? 'text-orange-500' : 'text-white'}`}>
+              to="/Bebidas-React-TS/"
+              className={({ isActive }) => `text-lg uppercase font-bold ${isActive && isHome ? 'text-orange-500' : 'text-white'}`}>
               Home
             </NavLink>
 
             <NavLink
-              to="/favoritos"
+              to="/Bebidas-React-TS/favoritos/"
               className={({ isActive }) => `text-lg uppercase font-bold ${isActive ? 'text-orange-500' : 'text-white'}`}>
               Favoritos
             </NavLink>
