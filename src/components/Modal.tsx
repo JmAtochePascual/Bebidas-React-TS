@@ -74,7 +74,6 @@ const Modal = () => {
                 {alreadyExists(recipe.idDrink) ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
               </button>
             </div>
-
           </DialogPanel>
         </div>
       </div>
