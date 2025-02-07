@@ -14,7 +14,7 @@ const DrinksList = ({ label, list }: DrinkCardProps) => {
       {
         isListEmpty
           ? <p className="text-lg text-center text-gray-800">{label}</p>
-          : <div className="grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          : <div className="pb-20 grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {
               drinks.map(drink =>
                 <DrinkCard
