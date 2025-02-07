@@ -5,7 +5,7 @@ import { INITIAL_PAIR } from "../data/initialStates";
 import { TPair } from "../types";
 
 const Header = () => {
-  const { categories, fetchCategories, fetchRecipes } = useAppStore();
+  const { categories, fetchCategories, fetchDrinks } = useAppStore();
   const [pair, setPair] = useState<TPair>(INITIAL_PAIR);
   const isPairEmpty = Object.values(pair).includes('');
   const { pathname } = useLocation();
@@ -21,7 +21,7 @@ const Header = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetchRecipes(pair);
+    fetchDrinks(pair);
   }
 
   return (
