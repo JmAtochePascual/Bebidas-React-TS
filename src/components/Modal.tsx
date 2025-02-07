@@ -2,7 +2,7 @@ import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useAppStore } from '../store/useAppStore'
 
 const Modal = () => {
-  const { modal, recipe, closeModal, addFavorite, alreadyExists } = useAppStore();
+  const { modal, recipe, closeModal, handleFavorite, alreadyExists } = useAppStore();
   const { strDrink, strInstructions, strDrinkThumb } = recipe;
 
   const rederIngredients = () => {
@@ -69,7 +69,7 @@ const Modal = () => {
               </button>
 
               <button
-                onClick={() => addFavorite(recipe)}
+                onClick={() => handleFavorite(recipe)}
                 className="w-full p-2 font-bold uppercase rounded-md cursor-pointer bg-orange-500 text-white hover:bg-orange-600">
                 {alreadyExists(recipe.idDrink) ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
               </button>
