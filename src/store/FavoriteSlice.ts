@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand"
 import { TRecipe } from '../types/index';
 import { useAppStore } from "./useAppStore";
+import { toast } from 'react-toastify';
 
 export type TFavoriteSlice = {
   favorites: TRecipe[],
@@ -17,8 +18,10 @@ export const favoriteSlice: StateCreator<TFavoriteSlice> = (set, get) => ({
 
     if (get().alreadyExists(recipe.idDrink)) {
       deleteFromFavorites();
+      toast.error('Eliminado de favoritos');
     } else {
       addToFavorites();
+      toast.success('Agregado a favoritos');
     }
     useAppStore.getState().closeModal();
 
