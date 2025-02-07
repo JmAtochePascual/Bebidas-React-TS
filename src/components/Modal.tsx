@@ -2,7 +2,7 @@ import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useAppStore } from '../store/useAppStore'
 
 const Modal = () => {
-  const { modal, recipe, closeModal } = useAppStore();
+  const { modal, recipe, closeModal, addFavorite, alreadyExists } = useAppStore();
   const { strDrink, strInstructions, strDrinkThumb } = recipe;
 
   const rederIngredients = () => {
@@ -46,20 +46,34 @@ const Modal = () => {
                 className="w-full max-w-80 mx-auto rounded-md" />
             </div>
             <DialogTitle as="h3" className="mb-2 font-bold text-lg text-gray-800 md:text-2xl">
-              Instrucciones
-            </DialogTitle>
-
-            <p>
-              {strInstructions}
-            </p>
-
-            <DialogTitle as="h3" className="mb-2 font-bold text-lg text-gray-800 md:text-2xl">
               Ingredientes
             </DialogTitle>
 
-            <ul className="grid gap-2">
+            <ul className="mb-4 grid gap-2">
               {rederIngredients()}
             </ul>
+
+            <DialogTitle as="h3" className="mb-2 font-bold text-lg text-gray-800 md:text-2xl">
+              Instrucciones
+            </DialogTitle>
+
+            <p className='mb-4'>
+              {strInstructions}
+            </p>
+
+            <div className="flex flex-col gap-2 md:flex-row">
+              <button
+                onClick={() => closeModal()}
+                className="w-full p-2 font-bold uppercase rounded-md cursor-pointer bg-gray-500 text-white hover:bg-gray-600">
+                Cerrar
+              </button>
+
+              <button
+                onClick={() => addFavorite(recipe)}
+                className="w-full p-2 font-bold uppercase rounded-md cursor-pointer bg-orange-500 text-white hover:bg-orange-600">
+                {alreadyExists(recipe.idDrink) ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
+              </button>
+            </div>
 
           </DialogPanel>
         </div>
