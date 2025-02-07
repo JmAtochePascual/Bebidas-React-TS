@@ -1,7 +1,7 @@
 import DrinksList from "../components/DrinksList";
 import { useAppStore } from "../store/useAppStore"
 
-const Favorites = () => {
+const FavoritePage = () => {
   const { favorites } = useAppStore();
 
   return (
@@ -16,4 +16,4 @@ const Favorites = () => {
   )
 }
 
-export default Favorites
+export default FavoritePage
