@@ -9,7 +9,7 @@ const Header = () => {
   const [pair, setPair] = useState<TPair>(INITIAL_PAIR);
   const isPairEmpty = Object.values(pair).includes('');
   const { pathname } = useLocation();
-  const isHome = pathname === '/Bebidas-React-TS/';
+  const isHome = pathname === '/';
 
   useEffect(() => {
     fetchCategories();
@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <header
-      className={`mb-10 py-12 bg-cover bg-center md:py-20 ${isHome ? 'bg-[url(img/bg.jpg)]' : 'bg-slate-800'}`}>
+      className={`mb-10 py-12 bg-cover bg-center md:py-20 ${isHome ? 'bg-header' : 'bg-slate-800'}`}>
       <div className="w-11/12 max-w-7xl mx-auto">
         <div className="mb-8 flex justify-between items-center">
           <img
@@ -36,13 +36,13 @@ const Header = () => {
 
           <nav className="flex gap-4">
             <NavLink
-              to="/Bebidas-React-TS/"
-              className={({ isActive }) => `text-lg uppercase font-bold ${isActive && isHome ? 'text-orange-500' : 'text-white'}`}>
+              to="/"
+              className={({ isActive }) => `text-lg uppercase font-bold ${isActive ? 'text-orange-500' : 'text-white'}`}>
               Home
             </NavLink>
 
             <NavLink
-              to="/Bebidas-React-TS/favoritos/"
+              to="/favoritos"
               className={({ isActive }) => `text-lg uppercase font-bold ${isActive ? 'text-orange-500' : 'text-white'}`}>
               Favoritos
             </NavLink>

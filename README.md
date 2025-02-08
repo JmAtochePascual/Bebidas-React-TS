@@ -25,7 +25,7 @@ Esta aplicación web permite a los usuarios buscar recetas de bebidas utilizando
     - `Modal.tsx`: Componente que muestra los detalles de una receta en un modal.
     - `Spinner.tsx`: Componente que muestra un indicador de carga.
   - **pages/**: Contiene las páginas de la aplicación.
-    - `HomePage.tsx`: Página principal de la aplicación.
+    - `IndexPage.tsx`: Página principal de la aplicación.
     - `FavoritePage.tsx`: Página que muestra las recetas favoritas del usuario.
   - **types/**: Tipos y interfaces compartidos que definen la estructura de los datos.
     - `index.ts`: Tipos y interfaces utilizados en toda la aplicación.

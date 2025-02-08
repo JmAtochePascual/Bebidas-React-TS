@@ -1,7 +1,7 @@
 import DrinksList from "../components/DrinksList";
 import { useAppStore } from "../store/useAppStore"
 
-const HomePage = () => {
+const IndexPage = () => {
   const { drinks } = useAppStore();
 
   return (
@@ -16,4 +16,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default IndexPage
