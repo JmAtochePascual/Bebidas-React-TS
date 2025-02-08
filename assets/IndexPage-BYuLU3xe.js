@@ -1,1 +1,0 @@
-import{u as t,j as s}from"./index-CjCCLr4K.js";import{D as a}from"./DrinksList-DNgDK5Ob.js";const o=()=>{const{drinks:e}=t();return s.jsxs("section",{children:[s.jsx("h1",{className:"mb-10 text-4xl font-bold text-gray-800 md:text-5xl",children:"Recetas"}),s.jsx(a,{label:"Comienza realizando una búsqueda",list:e})]})};export{o as default};

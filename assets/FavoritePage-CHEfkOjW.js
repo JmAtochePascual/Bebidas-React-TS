@@ -1,0 +1,1 @@
+import{u as o,j as s}from"./index-QqC-1pTo.js";import{D as r}from"./DrinksList-C1VCwUgO.js";const i=()=>{const{favorites:t}=o();return s.jsxs("section",{children:[s.jsx("h1",{className:"mb-10 text-4xl font-bold text-gray-800 md:text-5xl",children:"Favoritos"}),s.jsx(r,{label:"Los favoritos se mostrarán aquí",list:t})]})};export{i as default};
